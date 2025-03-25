@@ -65,15 +65,11 @@ const addEventToVideos = () => {
 }
 (
     () => {
-        fetch("/video-types")
-            .then(response => response.json())
-            .then(data => {
-                document.body.appendChild(container);
 
-                for (let movie_data of data) {
-                    createRow(movie_data);
-                }
-                addEventToVideos();
-            });
+        document.body.appendChild(container);
+        for (let movie_data of JSON.parse(data)) {
+            createRow(movie_data);
         }
+        addEventToVideos();
+    }
 )()

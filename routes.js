@@ -83,11 +83,19 @@ module.exports = (app) => {
   
 
     app.get('/videos', (req, res) => {
-        const result = db.query(
-            'SELECT * FROM `videos` '
-        );
-        res.status(200);
-        res.sendFile(path.join(__dirname, "public/views", "video-list.html"));
+        try {
+            db.query('SELECT * FROM `videos`', (err, results) => {
+                if (err) throw err;
+                const movie_data = convertResult(results);
+                res.status(200);
+                res.render('video-list', { result: movie_data });
+            })
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: 'Server error' });
+            
+        }
     }
     )
     // Protected route example
