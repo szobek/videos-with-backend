@@ -1,20 +1,7 @@
-(
-    () => {
-        // alert('video-list.js loaded')
-        let counter=1
+let counter = 1
 const container = document.createElement("div")
 container.classList.add("container-fluid")
 container.classList.add("p-5")
-fetch("/test")
-.then(response => response.json())
-.then(data => {
-    document.body.appendChild(container);
-    
-    for (let movie_data of data) {
-        createRow(movie_data);
-    }
-    addEventToVideos();
-});
 const createVideo = (movie_data) => {
     const type = movie_data.type
     const id = movie_data.ID
@@ -22,7 +9,7 @@ const createVideo = (movie_data) => {
     element.src = `/video/${movie_data.name.split(".")[0]}`;
     element.controls = false;
     element.muted = true;
-    element.dataset.name=movie_data.name
+    element.dataset.name = movie_data.name
     return element;
 }
 const createTitle = (movie_data) => {
@@ -39,7 +26,7 @@ const createRow = (movie_data) => {
     const row = document.createElement("div");
     titleCol.appendChild(title);
     row.appendChild(titleCol);
-    if(counter%2==0){
+    if (counter % 2 == 0) {
         row.classList.add("colored")
     }
 
@@ -75,5 +62,17 @@ const addEventToVideos = () => {
         });
     }
 }
-    }
+(
+    () => {
+        fetch("/video-types")
+            .then(response => response.json())
+            .then(data => {
+                document.body.appendChild(container);
+
+                for (let movie_data of data) {
+                    createRow(movie_data);
+                }
+                addEventToVideos();
+            });
+        }
 )()

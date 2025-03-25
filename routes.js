@@ -34,7 +34,7 @@ const convertResult = (results) => {
   
 module.exports = (app) => {
 
-    app.get("/test", (req, res) => {
+    app.get("/video-types", (req, res) => {
         const queryString = 'SELECT * FROM `videos`';
         db.query(queryString, (err, results) => {
           if (err) throw err;
