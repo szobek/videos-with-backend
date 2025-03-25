@@ -6,6 +6,9 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 routes(app);
+// Set EJS as templating engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'public/views'));
 // Session middleware
 app.use(session({
     secret: '20XQpDiL%xwhsYTiU03E',

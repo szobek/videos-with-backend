@@ -6,10 +6,10 @@ const createVideo = (movie_data) => {
     const type = movie_data.type
     const id = movie_data.ID
     const element = document.createElement("video");
-    element.src = `/video/${movie_data.name.split(".")[0]}`;
+    element.src = `/video/${movie_data.name}`;
     element.controls = false;
     element.muted = true;
-    element.dataset.name = movie_data.name
+    element.dataset.id = movie_data.ID
     return element;
 }
 const createTitle = (movie_data) => {
@@ -58,7 +58,8 @@ const addEventToVideos = () => {
         });
 
         video.addEventListener("click", () => {
-            window.location.href = "/";
+            const id = video.dataset.id;
+            window.location.href = `/watch/${id}`;
         });
     }
 }
