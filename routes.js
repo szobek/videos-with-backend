@@ -1,13 +1,8 @@
 const middlewares = require('./middlewares');
-const mysql = require('mysql2');
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'test'
-});
+const db = require('./db');
 module.exports = (app) => {
     
 // Register route
@@ -77,6 +72,9 @@ app.post('/login', (req, res) => {
 // Protected route example
 app.get('/protected', middlewares.jwtHandler, (req, res) => {
     res.json({ message: 'This is a protected route', user: req.user });
+});
+app.get('/save-data', middlewares.jwtHandler, (req, res) => {
+    res.json({ message: 'This is a protected save data route' });
 });
 
 }
