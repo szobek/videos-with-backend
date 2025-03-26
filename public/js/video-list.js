@@ -39,6 +39,7 @@ const createRow = (movie_data) => {
         videoCol.appendChild(video);
     }
     row.classList.add("row");
+    row.classList.add("video-type");
     container.appendChild(row);
     counter++
 }
