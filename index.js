@@ -1,10 +1,10 @@
 const express = require('express');
+require("dotenv").config(); 
 const session = require('express-session');
 const routes = require('./routes');
 const path = require('path');
 const app = express();
 const authRoutes = require('./authRoutes');
-require("dotenv").config(); 
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
