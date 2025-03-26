@@ -93,7 +93,7 @@ module.exports = (app) => {
             
         } catch (error) {
             console.log(error);
-            res.status(500).json({ message: 'Server error' });
+            res.status(500).json({ message: 'Server error in videos' });
             
         }
     }
@@ -116,5 +116,15 @@ module.exports = (app) => {
         })
     });
 
-
+    app.get('/', (req, res) => {
+        try {
+            res.render('home');
+            
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: 'Server error' });
+            
+        }
+    }
+    )
 }
