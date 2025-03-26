@@ -84,7 +84,8 @@ module.exports = (app) => {
 
     app.get('/videos', (req, res) => {
         try {
-            db.query('SELECT * FROM `videos`', (err, results) => {
+            const queryString = 'SELECT * FROM `videos`';
+            db.query(queryString, (err, results) => {
                 if (err) throw err;
                 const movie_data = convertResult(results);
                 res.status(200);
@@ -103,7 +104,7 @@ module.exports = (app) => {
         res.json({ message: 'This is a protected route', user: req.user });
     });
     app.get('/save-data', middlewares.jwtHandler, (req, res) => {
-        res.json({ message: 'This is a protected save data route' });
+        res.json({ message: 'This is a protected save data route',user: req.user });
     });
 
     app.get('/watch/:id', (req, res) => {

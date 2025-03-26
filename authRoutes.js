@@ -56,7 +56,7 @@ module.exports = (app) => {
 
                 // Generate JWT token
                 const token = jwt.sign(
-                    { id: user.id, username: user.username },
+                    { id: user.id, username: user.username, role: user.role },
                     'your-secret-key',
                     { expiresIn: '1h' }
                 );
