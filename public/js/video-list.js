@@ -9,7 +9,7 @@ const createVideo = (movie_data) => {
     element.src = `/video/${movie_data.name}`;
     element.controls = false;
     element.muted = true;
-    element.dataset.id = movie_data.ID
+    element.dataset.id = movie_data.id
     return element;
 }
 const createTitle = (movie_data) => {
