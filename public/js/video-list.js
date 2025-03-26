@@ -66,7 +66,7 @@ const addEventToVideos = () => {
 (
     () => {
 
-        document.body.appendChild(container);
+        document.getElementById("list").appendChild(container);
         for (let movie_data of JSON.parse(data)) {
             createRow(movie_data);
         }
