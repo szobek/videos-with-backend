@@ -29,3 +29,6 @@ footer {
   width: 100%;
   text-align: center;
 }
+footer .container .row {
+  min-height: 100px;
+}

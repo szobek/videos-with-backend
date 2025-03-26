@@ -7,4 +7,12 @@ footer{
   bottom: 0;
   width: 100%;
   text-align: center;
+  .container{
+    .row{
+        min-height: 100px;
+        .col-md-12{
+
+        }
+    }
+  }
 }
