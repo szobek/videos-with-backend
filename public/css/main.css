@@ -24,8 +24,6 @@
 footer {
   background-color: #607f9f;
   color: white;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   text-align: center;
 }
